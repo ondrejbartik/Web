@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ondřej Bártík - Terapeut a Instruktor</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #2c3e50;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    header {
+      background: url('zprofilu.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    header div {
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      animation: fadeInDown 1s ease-out;
+    }
+    header p {
+      font-size: 1.8rem;
+      font-weight: 300;
+    }
+    .section {
+      padding: 80px 20px;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section h2 {
+      color: #1a252f;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      font-weight: 600;
+      position: relative;
+    }
+    .section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 4px;
+      background: #3498db;
+      border-radius: 2px;
+    }
+    .section img {
+      width: 400px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+    .section img:hover {
+      transform: scale(1.05);
+    }
+    .section p {
+      max-width: 800px;
+      margin: 20px auto;
+      text-align: left;
+      color: #34495e;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+    #moje-kurzy {
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 100px;
+      padding: 40px;
+    }
+    #terapeut {
+      background: #f8f9fa;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+    }
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+      header p {
+        font-size: 1.2rem;
+      }
+      .section img, .gallery img {
+        width: 100%;
+        height: auto;
+      }
+      .section p {
+        text-align: center;
+      }
+      .section h2 {
+        font-size: 2rem;
+      }
+      #moje-kurzy, #terapeut {
+        margin-bottom: 50px;
+        padding: 20px;
+      }
+    }
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Ondřej Bártík</h1>
+      <p>Terapeut | Instruktor Osobní Bezpečnosti a Sebeobrany</p>
+    </div>
+  </header>
+
+  <section class="section" id="o-mne">
+    <h2>O Mně</h2>
+    <img src="portret1.jpeg" alt="Ondřej Bártík">
+    <p>Jmenuju se Ondra a před 12ti lety jsem se vydal na cestu k pocitu bezpečí, vztahu k sobě, k násilí, zvládání konfliktů a stresu. Jak to bývá, začala ve velkém stínu - měl jsem strach, že mi bude ublíženo, jako mým přátelům a chtěl jsem být “hustej”, abych se zalíbil druhým, ale hlavně, abych si vážil sám sebe. Začal jsem trénovat KravMagu (sebeobranný systém pro boj z blízka) a rychle zjistil, že to ani náhodou nestačí. V průběhu let jsem začal používat mezilidské i naše vnitřní konflikty a téma násilí jako prostředek k osobnímu rozvoji a uzdravování traumat. Ty můžou pocházet jak z překračování našich hranic, tak z napadení, znásilnění a dalších těžkých událostí - nebo naopak z nepřítomnosti těch, které jsme jako děti potřebovaly. A to bylo pro náš nervový systém prostě příliš… V mém případě to bylo mimo jiné emocionální zneužívání v dětství, které vedlo k odpojení od mé opravdovosti.<br><br>Nyní dělám už 9. rokem instruktora osobní bezpečnosti a sebeobrany pro děti i dospělé v Praze, kde se učíme vypořádat s nebezpečnými konflikty a vytvářím bezpečný prostor pro dělání “nebezpečných” věcí… třeba korekční zkušenost oněch událostí, které v nás zanechaly hluboká zranění.<br><br>V současné době dokončuji terapeutický výcvik “E-motion coaching” pod vedením německé psycholožky Dorothe Trassl, prošel jsem výcvikem krizové intervence na Lince bezpečí, roční tantrický výcvik PTVD pod vedením Jitky Mandalam a Honzy Komedy - u nich také Tao masážní kurz, stíny a další. Absolvoval jsem také online kurz tantričky Layly Martin. Jsem MŠMT certifikovaný instruktor sebeobranného systému KravMaga původně světové organizace KMG. Akademie bezpečí a Česká Krav Maga Asociace se kterými spolupracuji mě naučila, jak pracovat s konflikty a že násilí většinou není tou cestou, kterou opravdu potřebujeme.</p>
+  </section>
+
+  <section class="section" id="moje-kurzy">
+    <h2>Moje Kurzy</h2>
+    <section class="section" id="dospelost">
+      <h2>Dospělost v konfliktu</h2>
+      <img src="dospelostvkonfliktu.jpeg" alt="Dospělost v konfliktu">
+      <p>Jak mluví tvé tělo pod tlakem a jak se vrací do bezpečí?<br><br><strong>Představení WS</strong><br>Stejně jako já má každý svůj příběh – a ten ovlivnil to, kým jsme dnes.<br>Konflikty jsou přirozenou součástí života. Můžeme si v nich všímat, jak nás náš příběh připravil ke zvládání různých forem energie – od marnosti a napětí v těle až po zuřivost, která chce ven.<br><br><strong>Co budeme dělat?</strong><br>Hravou formou prozkoumáme, jak se náš nervový systém naučil chránit naše hranice a pocit bezpečí. Protože bezpečí neznamená jen absenci hrozby, ale i propojení se sebou a s ostatními.<br>Zábavně a s respektem si vědomě vytvoříme konfliktní situace skrze komunikaci, pohyb, dotek a další interakce. Budeme si všímat, co to s námi dělá – a dáme si prostor pro reflexi toho, co jsme o sobě (znovu) objevili.<br><br><strong>Pro koho to je?</strong><br>Tělo s tebou mluví – a každým „slovem“ se tě snaží chránit.<br>Chceš lépe rozumět své reakci pod tlakem? Včas si všimnout, co přichází, a naslouchat svému tělu?<br>Zajímá tě, proč se druzí chovají tak, jak se chovají – i když se ti to nelíbí?<br>Když jsou potřeby lidí nenaplněné, může se to projevit způsoby, které bolí. Ale vždycky je za tím něco víc.<br>Žádné předchozí zkušenosti nejsou třeba.<br><br><strong>Přínos</strong><br>Uvidíš, že jsi v pořádku tak, jak jsi, i když je to někdy nepříjemné.<br>Uvidíš, že i druzí jsou v pořádku – i když je to někdy těžké unést.<br>Dostaneš prostor uvolnit napětí z konfliktů, na které jsi tehdy neměl kapacitu.</p>
+    </section>
+
+    <section class="section" id="bezpecnost">
+      <h2>Osobní Bezpečnost a Sebeobrana</h2>
+      <div class="gallery">
+        <img src="pripravascenaru.jpg" alt="Příprava scénáře">
+        <img src="scenar.jpg" alt="Scénář">
+      </div>
+      <p>😎 Chcete zvládat konflikty s klidem a jistotou? 😎<br>🤔 Chcete si zvědomit, jak v nich reagujete a jak to ovlivňuje vaše bezpečí? 🤔<br>😱 Přijďte se o sobě dozvědět věci, o kterých jste neměli nejmenší tušení. 😱<br>Konflikty jsou běžnou součástí mezilidských vztahů. Spousta konfliktů obsahuje násilí, nebo potenciál, aby k němu došlo. Stres, který v konfliktech prožíváme spolu se strategiemi, které v nich zaujímáme přímo souvisí s tím, jestli k násilí dojde a jak bude vypadat.<br>Vytvářím bezpečný prostor, kde můžete zkoumat jinde nebezpečné situace. Podle vaší osobní volby se dostanete do různých (příjemných i nepříjemných) interakcí s ostatními a projdete si nejčastějšími scénáři, které budete řešit v různých rolích s různými přístupy.<br>Zjistíte, jak váš aktuální přístup ke konfliktu ovlivňuje jeho výsledek a dostanete paletu nástrojů, které mohou významně ovlivnit vaše bezpečí.<br>Ať už jde o komunikaci a nastavování hranic, fyzickou sebeobranu a pohyb, nebo práci se stresem a emocemi. Zážitky z tréninků vám mohou ukázat mnohé o sobě samých a toto sebe-vědomí má velký dopad na kvalitu vašeho života.</p>
+    </section>
+
+    <section class="section" id="deti">
+      <h2>Dětské Kurzy</h2>
+      <img src="deti1.jpeg" alt="Dětské kurzy">
+    </section>
+  </section>
+
+  <section class="section" id="terapeut">
+    <h2>Terapeut</h2>
+    <img src="dorothe.jpg" alt="Terapeutická práce">
+  </section>
+
+  <section class="section" id="kontakt">
+    <h2>Kontakt</h2>
+    <p>Email: Bartik.ondra@seznam.cz<br>Telefon: +420 728 094 294</p>
+  </section>
+
+  <script>
+    // Simple JavaScript for smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
