@@ -3,260 +3,914 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ondřej Bártík - Terapeut a Instruktor</title>
+  <title>Ondřej Bártík - Průvodce hranicemi a bezpečím</title>
   <style>
+    :root {
+      --bg: #f6f7f4;
+      --surface: #ffffff;
+      --surface-soft: #eef2ec;
+      --surface-muted: #f1f4ef;
+      --surface-warm: #f8faf7;
+      --text: #17201b;
+      --text-soft: #49564e;
+      --text-muted: #6e7b73;
+      --line: #dbe2db;
+      --accent: #2f6b57;
+      --accent-dark: #234f41;
+      --accent-soft: rgba(47, 107, 87, 0.12);
+      --shadow-soft: 0 10px 30px rgba(23, 32, 27, 0.06);
+      --shadow-card: 0 18px 44px rgba(23, 32, 27, 0.08);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+      --container: 1180px;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      color: #2c3e50;
-      line-height: 1.6;
+      font-family: "Inter", "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
-    header {
-      background: url('zprofilu.jpg') no-repeat center center/cover;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      color: white;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+
+    img {
+      display: block;
+      max-width: 100%;
     }
-    header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
+
+    a {
+      color: inherit;
     }
-    header div {
-      position: relative;
-      z-index: 1;
+
+    .container {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
     }
-    header h1 {
-      font-size: 4rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      animation: fadeInDown 1s ease-out;
-    }
-    header p {
-      font-size: 1.8rem;
-      font-weight: 300;
-    }
+
     nav {
-      background: #1a252f;
-      padding: 1rem;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+      background: rgba(246, 247, 244, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(219, 226, 219, 0.85);
     }
+
+    .nav-inner {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 74px;
+    }
+
     nav ul {
       list-style: none;
       display: flex;
-      justify-content: center;
+      align-items: center;
       gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
     }
+
     nav a {
-      color: #ffffff;
       text-decoration: none;
+      color: var(--text-soft);
+      font-size: 0.98rem;
       font-weight: 500;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
+      transition: color 0.2s ease;
     }
-    nav a:hover {
-      color: #3498db;
+
+    nav a:hover,
+    nav a:focus {
+      color: var(--text);
     }
-    .section {
-      padding: 80px 20px;
-      text-align: center;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .section h2 {
-      color: #1a252f;
-      font-size: 2.5rem;
-      margin-bottom: 40px;
-      font-weight: 600;
+
+    header {
       position: relative;
+      min-height: calc(100vh - 74px);
+      display: flex;
+      align-items: center;
+      padding: 90px 0 80px;
+      background:
+        linear-gradient(90deg, rgba(17, 23, 20, 0.74) 0%, rgba(17, 23, 20, 0.64) 34%, rgba(17, 23, 20, 0.35) 63%, rgba(17, 23, 20, 0.16) 100%),
+        url('zprofilu.jpg') no-repeat center center / cover;
+      color: #ffffff;
     }
-    .section h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 50px;
-      height: 4px;
-      background: #3498db;
-      border-radius: 2px;
+
+    .hero {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
     }
-    .section h3 {
-      color: #34495e;
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      font-weight: 500;
+
+    .hero-content {
+      max-width: 700px;
     }
-    .section img {
-      width: 400px;
-      height: auto;
-      object-fit: cover;
-      border-radius: 15px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-      transition: transform 0.3s ease;
+
+    .hero-name {
+      display: inline-block;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.8);
     }
-    .section img:hover {
-      transform: scale(1.05);
+
+    .hero-title {
+      font-size: clamp(2.8rem, 6vw, 5.2rem);
+      line-height: 0.98;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      max-width: 720px;
+      margin-bottom: 1.2rem;
     }
-    .section p {
-      max-width: 800px;
-      margin: 20px auto;
-      text-align: left;
-      color: #34495e;
-      font-size: 1.1rem;
+
+    .hero-tagline {
+      font-size: clamp(1.15rem, 2vw, 1.55rem);
+      line-height: 1.45;
+      font-weight: 600;
+      max-width: 620px;
+      margin-bottom: 1rem;
+      color: rgba(255, 255, 255, 0.98);
+    }
+
+    .hero-description {
+      max-width: 640px;
+      font-size: 1.08rem;
+      line-height: 1.85;
+      color: rgba(255, 255, 255, 0.86);
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.95rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .hero-button,
+    .card-button,
+    .inline-cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 180px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.98rem;
+      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+    }
+
+    .hero-button:hover,
+    .card-button:hover,
+    .inline-cta-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-button.primary,
+    .card-button.primary {
+      background: #ffffff;
+      color: var(--text);
+    }
+
+    .hero-button.primary:hover,
+    .card-button.primary:hover {
+      background: #eef2ee;
+    }
+
+    .hero-button.secondary,
+    .card-button.secondary {
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .hero-button.secondary:hover,
+    .card-button.secondary:hover {
+      border-color: rgba(255, 255, 255, 0.72);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .card-button,
+    .inline-cta-button {
+      min-width: 0;
+      width: fit-content;
+      padding: 12px 18px;
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .card-button:hover,
+    .inline-cta-button:hover {
+      background: var(--accent-dark);
+    }
+
+    main {
+      padding: 34px 0 100px;
+    }
+
+    .section {
+      padding: 82px 0;
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin-bottom: 2.2rem;
+    }
+
+    .section-header.centered {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section h2 {
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .section-lead {
+      margin-top: 1rem;
+      font-size: 1.08rem;
+      color: var(--text-soft);
       line-height: 1.8;
     }
-    .gallery {
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid rgba(219, 226, 219, 0.95);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .intro-panel {
+      padding: 42px 42px 36px;
+      background:
+        radial-gradient(circle at top left, rgba(47, 107, 87, 0.08), transparent 32%),
+        var(--surface);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .info-block {
+      position: relative;
+      background: var(--surface-warm);
+      border: 1px solid rgba(219, 226, 219, 0.9);
+      border-radius: 24px;
+      padding: 30px 28px 28px;
+      min-height: 100%;
+    }
+
+    .info-block.featured {
+      background: linear-gradient(180deg, rgba(47, 107, 87, 0.08) 0%, rgba(47, 107, 87, 0.03) 100%), var(--surface);
+      border-color: rgba(47, 107, 87, 0.18);
+    }
+
+    .block-label {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .info-block h3 {
+      font-size: 1.45rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .info-block p {
+      color: var(--text-soft);
+      font-size: 1.02rem;
+      line-height: 1.8;
+    }
+
+    .criteria-list {
+      list-style: none;
+      display: grid;
+      gap: 0.95rem;
+      margin: 0;
+    }
+
+    .criteria-list li {
+      position: relative;
+      padding-left: 1.45rem;
+      color: var(--text);
+      font-size: 1.03rem;
+      line-height: 1.72;
+    }
+
+    .criteria-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.72rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      transform: translateY(-50%);
+    }
+
+    .info-block.subtle .criteria-list li {
+      color: var(--text-soft);
+    }
+
+    .intro-note {
+      margin-top: 1.35rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid rgba(219, 226, 219, 0.9);
+      color: var(--text-soft);
+      font-size: 0.98rem;
+      line-height: 1.75;
+    }
+
+    .intro-cta {
+      margin-top: 2rem;
+      padding-top: 1.6rem;
+      border-top: 1px solid rgba(219, 226, 219, 0.9);
       display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 20px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem 1.5rem;
       flex-wrap: wrap;
     }
-    .gallery img {
-      width: 240px;
-      height: auto;
+
+    .intro-cta-text {
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .about-panel {
+      padding: 42px;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(280px, 360px) 1fr;
+      gap: 42px;
+      align-items: start;
+    }
+
+    .about-image-wrap {
+      position: sticky;
+      top: 110px;
+    }
+
+    .about-image-wrap img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
       object-fit: cover;
-      border-radius: 15px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-      transition: transform 0.3s ease;
+      border-radius: 24px;
+      box-shadow: var(--shadow-card);
     }
-    .gallery img:hover {
-      transform: scale(1.05);
+
+    .about-copy {
+      max-width: 760px;
     }
-    #moje-kurzy {
-      background: #ffffff;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      margin-bottom: 100px;
-      padding: 40px;
+
+    .about-copy p {
+      font-size: 1.07rem;
+      color: var(--text-soft);
+      line-height: 1.9;
+      margin-top: 0;
+      margin-bottom: 1.4rem;
     }
-    #terapeut {
-      background: #f8f9fa;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      padding: 40px;
+
+    .about-copy p:last-child {
+      margin-bottom: 0;
     }
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.5rem;
+
+    .about-copy .lead {
+      font-size: 1.36rem;
+      font-weight: 600;
+      line-height: 1.6;
+      color: var(--text);
+      margin-bottom: 1.6rem;
+    }
+
+    .courses-header {
+      margin-bottom: 2.4rem;
+    }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .course-card {
+      background: var(--surface);
+      border: 1px solid rgba(219, 226, 219, 0.95);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .course-card img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+
+    .course-body {
+      padding: 26px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      height: 100%;
+    }
+
+    .course-meta {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--accent-dark);
+      font-size: 0.85rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .course-card h3 {
+      font-size: 1.45rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .course-card h4 {
+      font-size: 1rem;
+      line-height: 1.6;
+      font-weight: 600;
+      color: var(--accent-dark);
+    }
+
+    .course-card p {
+      font-size: 0.98rem;
+      line-height: 1.8;
+      color: var(--text-soft);
+    }
+
+    .course-card p strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .course-actions {
+      margin-top: auto;
+      padding-top: 0.4rem;
+    }
+
+    .therapy-panel {
+      padding: 42px;
+    }
+
+    .therapy-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .therapy-copy p {
+      font-size: 1.07rem;
+      line-height: 1.9;
+      color: var(--text-soft);
+      max-width: 760px;
+      margin-bottom: 1rem;
+    }
+
+    .therapy-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .therapy-copy strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .therapy-gallery {
+      display: grid;
+      gap: 16px;
+    }
+
+    .therapy-gallery img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-panel {
+      padding: 34px 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .contact-copy h2 {
+      margin-bottom: 0.7rem;
+    }
+
+    .contact-copy p {
+      color: var(--text-soft);
+      font-size: 1.03rem;
+      line-height: 1.8;
+    }
+
+    .contact-details {
+      text-align: right;
+    }
+
+    .contact-details a,
+    .contact-details span {
+      display: block;
+      text-decoration: none;
+      font-size: 1.12rem;
+      font-weight: 600;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    .contact-details a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 1080px) {
+      .intro-grid,
+      .therapy-layout,
+      .about-layout,
+      .courses-grid {
+        grid-template-columns: 1fr;
       }
-      header p {
+
+      .about-image-wrap {
+        position: static;
+      }
+
+      .contact-panel {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .contact-details {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .container,
+      .nav-inner,
+      .hero {
+        width: min(var(--container), calc(100% - 28px));
+      }
+
+      nav ul {
+        gap: 0.95rem 1.2rem;
+      }
+
+      nav a {
+        font-size: 0.94rem;
+      }
+
+      header {
+        min-height: auto;
+        padding: 74px 0 62px;
+        background:
+          linear-gradient(180deg, rgba(17, 23, 20, 0.76) 0%, rgba(17, 23, 20, 0.6) 46%, rgba(17, 23, 20, 0.42) 100%),
+          url('zprofilu.jpg') no-repeat center center / cover;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-button,
+      .inline-cta-button {
+        width: 100%;
+      }
+
+      main {
+        padding-top: 18px;
+      }
+
+      .section {
+        padding: 58px 0;
+      }
+
+      .intro-panel,
+      .about-panel,
+      .therapy-panel,
+      .contact-panel {
+        padding: 24px 20px;
+      }
+
+      .info-block {
+        padding: 24px 20px 22px;
+      }
+
+      .course-body {
+        padding: 22px 20px 20px;
+      }
+
+      .about-copy .lead {
         font-size: 1.2rem;
       }
-      nav ul {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-      }
-      .section img, .gallery img {
+
+      .card-button {
         width: 100%;
-        max-width: 240px;
-        height: auto;
       }
-      .section p {
-        text-align: center;
+
+      .intro-cta {
+        align-items: stretch;
       }
-      .section h2 {
-        font-size: 2rem;
-      }
-      .section h3 {
-        font-size: 1.5rem;
-      }
-      #moje-kurzy, #terapeut {
-        margin-bottom: 50px;
-        padding: 20px;
-      }
-    }
-    @keyframes fadeInDown {
-      0% { opacity: 0; transform: translateY(-20px); }
-      100% { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
   <nav>
-    <ul>
-      <li><a href="#o-mne">O Mně</a></li>
-      <li><a href="#moje-kurzy">Moje Kurzy</a></li>
-      <li><a href="#terapeut">Terapeut</a></li>
-      <li><a href="#kontakt">Kontakt</a></li>
-    </ul>
+    <div class="nav-inner">
+      <ul>
+        <li><a href="#pro-koho">Je to pro tebe?</a></li>
+        <li><a href="#o-mne">O mně</a></li>
+        <li><a href="#aktualni">Aktuální kurzy a akce</a></li>
+        <li><a href="#terapeut">Terapeutická práce</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
   </nav>
 
   <header>
-    <div>
-      <h1>Ondřej Bártík</h1>
-      <p>Terapeut | Instruktor Osobní Bezpečnosti a Sebeobrany</p>
+    <div class="hero">
+      <div class="hero-content">
+        <span class="hero-name">Ondřej Bártík</span>
+        <h1 class="hero-title">Průvodce hranicemi a bezpečím</h1>
+        <p class="hero-tagline">Nauč se říkat jasné NE a vědomé ANO.</p>
+        <p class="hero-description">
+          Pomáhám lidem zvládat konflikt, lépe se vnímat a nastavovat hranice bez ztráty sebe.
+        </p>
+        <div class="hero-actions">
+          <a class="hero-button primary" href="#aktualni">Podívat se na kurzy</a>
+          <a class="hero-button secondary" href="#kontakt">Ozvi se mi</a>
+        </div>
+      </div>
     </div>
   </header>
 
-  <section class="section" id="o-mne">
-    <h2>O Mně</h2>
-    <img src="portret1.jpeg" alt="Ondřej Bártík">
-    <p>Jmenuju se Ondra a před 12ti lety jsem se vydal na cestu k pocitu bezpečí, vztahu k sobě, k násilí, zvládání konfliktů a stresu. Jak to bývá, začala ve velkém stínu - měl jsem strach, že mi bude ublíženo, jako mým přátelům a chtěl jsem být “hustej”, abych se zalíbil druhým, ale hlavně, abych si vážil sám sebe. Začal jsem trénovat KravMagu (sebeobranný systém pro boj z blízka) a rychle zjistil, že to ani náhodou nestačí. V průběhu let jsem začal používat mezilidské i naše vnitřní konflikty a téma násilí jako prostředek k osobnímu rozvoji a uzdravování traumat. Ty můžou pocházet jak z překračování našich hranic, tak z napadení, znásilnění a dalších těžkých událostí - nebo nenaplňování potřeb v průběhu dospívání. A to bylo pro náš nervový systém prostě příliš… V mém případě to bylo mimo jiné emocionální zneužívání v dětství, které vedlo k odpojení od mé opravdovosti.<br><br>Nyní dělám už 9. rokem instruktora osobní bezpečnosti a sebeobrany pro děti i dospělé v Praze, kde se učíme vypořádat s nebezpečnými konflikty a vytvářím bezpečný prostor pro dělání “nebezpečných” věcí… třeba korektivní zkušenost oněch událostí, které v nás zanechaly hluboká zranění.<br><br>V současné době dokončuji terapeutický výcvik “E-motion coaching” pod vedením německé psycholožky Dorothe Trassl, prošel jsem výcvikem krizové intervence na Lince bezpečí, roční tantrický výcvik PTVD pod vedením Jitky Mandalam a Honzy Komedy - u nich také Tao masážní kurz, stíny a další. Absolvoval jsem také online kurz tantričky Layly Martin. Jsem MŠMT certifikovaný instruktor sebeobranného systému KravMaga původně světové organizace KMG. Akademie bezpečí a Česká Krav Maga Asociace se kterými spolupracuji mě naučila, jak pracovat s konflikty a že násilí většinou není tou cestou, kterou opravdu potřebujeme.</p>
-  </section>
+  <main>
+    <section class="section" id="pro-koho">
+      <div class="container">
+        <div class="section-header centered">
+          <h2>Je to pro tebe?</h2>
+        </div>
 
-  <section class="section" id="moje-kurzy">
-    <h2>Moje Kurzy</h2>
-    <section class="section" id="dospelost">
-      <h2>Dospělost v konfliktu</h2>
-      <h3>Jak mluví tvé tělo pod tlakem a jak se vrací do bezpečí?</h3>
-      <img src="dospelostvkonfliktu.jpeg" alt="Dospělost v konfliktu">
-      <p>Stejně jako já má každý svůj příběh – a ten ovlivnil to, kým jsme dnes.<br>Konflikty jsou přirozenou součástí života. Můžeme si v nich všímat, jak nás náš příběh připravil ke zvládání různých forem energie – od marnosti a napětí v těle až po zuřivost, která chce ven.<br>Tělo s tebou mluví – a každým „slovem“ se tě snaží chránit.<br><br><strong>Co budeme dělat?</strong><br>Hravou formou prozkoumáme, jak se náš nervový systém naučil chránit naše hranice a pocit bezpečí. Protože bezpečí neznamená jen absenci hrozby, ale i propojení se sebou a s ostatními.<br>Zábavně a s respektem si vědomě vytvoříme konfliktní situace skrze komunikaci, pohyb, dotek a další interakce. Budeme si všímat, co to s námi dělá – a dáme si prostor pro reflexi toho, co jsme o sobě (znovu) objevili.<br><br><strong>Pro koho to je?</strong><br>Chceš lépe rozumět své reakci pod tlakem? Včas si všimnout, co přichází, a naslouchat svému tělu?<br>Zajímá tě, proč se druzí chovají tak, jak se chovají – i když se ti to nelíbí?<br>Když jsou potřeby lidí nenaplněné, může se to projevit způsoby, které bolí. Ale vždycky je za tím něco víc.<br>Žádné předchozí zkušenosti nejsou třeba.<br><br><strong>Přínos</strong><br>Uvidíš, že jsi v pořádku tak, jak jsi, i když je to někdy nepříjemné.<br>Uvidíš, že i druzí jsou v pořádku – i když je to někdy těžké unést.<br>Dostaneš prostor uvolnit napětí z konfliktů, na které jsi tehdy neměl kapacitu.</p>
+        <div class="panel intro-panel">
+          <div class="intro-grid">
+            <div class="info-block featured">
+              <span class="block-label">ANO, pokud…</span>
+              <ul class="criteria-list">
+                <li>raději ustoupíš, než abys řekl, co chceš</li>
+                <li>zbytečně tlačíš a pak tě to mrzí</li>
+                <li>reaguješ jinak, než bys chtěl</li>
+                <li>chceš rozumět tomu, co se v tobě děje</li>
+                <li>hledáš víc klidu a jistoty v náročných situacích</li>
+              </ul>
+            </div>
+
+            <div class="info-block subtle">
+              <span class="block-label">NE, pokud…</span>
+              <ul class="criteria-list">
+                <li>čekáš rychlou změnu bez vlastní práce</li>
+                <li>hledáš jednu zázračnou techniku</li>
+                <li>necítíš potřebu něco měnit</li>
+              </ul>
+              <p class="intro-note">
+                Nejde o to se lámat přes koleno. Jde o to poznávat sebe, zkoušet nové způsoby a nacházet větší jistotu v situacích, které tě dřív rozhodily.
+              </p>
+            </div>
+          </div>
+
+          <div class="intro-cta">
+            <p class="intro-cta-text">Dává ti to smysl?</p>
+            <a class="inline-cta-button" href="#aktualni">Podívat se na aktuální kurzy</a>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="section" id="bezpecnost">
-      <h2>Osobní Bezpečnost a Sebeobrana</h2>
-      <img src="scenar.jpg" alt="Scénář">
-      <p>😎 Chcete zvládat konflikty s klidem a jistotou? 😎<br>🤔 Chcete si zvědomit, jak v nich reagujete a jak to ovlivňuje vaše bezpečí? 🤔<br>😱 Přijďte se o sobě dozvědět věci, o kterých jste neměli nejmenší tušení. 😱<br>Konflikty jsou běžnou součástí mezilidských vztahů. Spousta konfliktů obsahuje násilí, nebo potenciál, aby k němu došlo. Stres, který v konfliktech prožíváme spolu se strategiemi, které v nich zaujímáme přímo souvisí s tím, jestli k násilí dojde a jak bude vypadat.<br>Vytvářím bezpečný prostor, kde můžete zkoumat jinde nebezpečné situace. Podle vaší osobní volby se dostanete do různých (příjemných i nepříjemných) interakcí s ostatními a projdete si nejčastějšími scénáři, které budete řešit v různých rolích s různými přístupy.<br>Zjistíte, jak váš aktuální přístup ke konfliktu ovlivňuje jeho výsledek a dostanete paletu nástrojů, které mohou významně ovlivnit vaše bezpečí.<br>Ať už jde o komunikaci a nastavování hranic, fyzickou sebeobranu a pohyb, nebo práci se stresem a emocemi. Zážitky z tréninků vám mohou ukázat mnohé o sobě samých a toto sebe-vědomí má velký dopad na kvalitu vašeho života.</p>
+    <section class="section" id="o-mne">
+      <div class="container">
+        <div class="section-header">
+          <h2>O mně</h2>
+        </div>
+
+        <div class="panel about-panel">
+          <div class="about-layout">
+            <div class="about-image-wrap">
+              <img src="portret1.jpeg" alt="Ondřej Bártík">
+            </div>
+
+            <div class="about-copy">
+              <p class="lead">
+                Pomáhám lidem nastavit hranice a zvládat konflikty bez toho, aby ztráceli sebe.
+              </p>
+
+              <p>
+                Když mi bylo 18, napadli mého spolužáka i jeho partnerku. Ten pocit bezmoci mě přivedl k sebeobraně.
+              </p>
+
+              <p>
+                Postupně jsem ale zjistil, že nejde jen o to, jak se bránit. Jde o to, jak fungujeme pod tlakem, jak rozumíme sobě a jak se chováme ve vztazích.
+              </p>
+
+              <p>
+                Hranice nejsou o tvrdosti. Jsou o jasnosti v sobě.
+              </p>
+
+              <p>
+                Dnes pracuji s lidmi, kteří chtějí víc než jen techniky – chtějí pochopit, co se v nich děje, a skutečně to změnit.
+              </p>
+
+              <p>
+                Za 9 let praxe jsem pracoval s více než 1000 lidmi – každý z nich přišel s jiným příběhem.
+              </p>
+
+              <p>
+                Odnášejí si větší sebejistotu, pochopení sebe a konkrétní nástroje pro zvládání konfliktů v reálném životě.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="section" id="deti">
-      <h2>Dětské Kurzy</h2>
-      <img id="deti1" src="deti1.jpeg" alt="Dětské kurzy">
+    <section class="section" id="aktualni">
+      <div class="container">
+        <div class="courses-header">
+          <div class="section-header">
+            <h2>Aktuální kurzy a akce</h2>
+          </div>
+        </div>
+
+        <div class="courses-grid">
+          <article class="course-card" id="burn">
+            <img src="burn.png" alt="BURN">
+            <div class="course-body">
+              <span class="course-meta">Pro absolventy E-motion seminářů</span>
+              <h3>BURN</h3>
+              <p>
+                Somatický proces pro uvolnění, prožití a integraci emocí. Bezpečně držený prostor, který navazuje na práci, kterou už znáš, a dává tělu prostor dokončit to, co už je připravené.
+              </p>
+              <div class="course-actions">
+                <a class="card-button" href="#">Zjistit víc</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card" id="bezpecnost">
+            <img src="scenar.jpg" alt="Osobní bezpečnost a sebeobrana">
+            <div class="course-body">
+              <h3>Osobní bezpečnost a sebeobrana</h3>
+              <p>
+                Praktický trénink, ve kterém zjistíš, jak reaguješ pod tlakem a co to dělá s tvým bezpečím.
+              </p>
+              <p>
+                Naučíš se pracovat s konfliktem, nastavovat hranice a zvládat stres v reálných situacích.
+              </p>
+              <div class="course-actions">
+                <a class="card-button" href="#">Zjistit víc</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="course-card" id="deti">
+            <img src="deti1.jpeg" alt="Dětské kurzy">
+            <div class="course-body">
+              <h3>Dětské kurzy</h3>
+              <p>
+                Kurz vede děti k sebeobraně zábavnou a nenásilnou formou her. Vedle pohybu a praktických dovedností se v něm pracuje také s prevencí, rozpoznáním nebezpečí a řešením situací, jako je například šikana.
+              </p>
+              <div class="course-actions">
+                <a class="card-button" href="#">Zjistit víc</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
-  </section>
 
-  <section class="section" id="terapeut">
-    <h2>Terapeut</h2>
-    <p>Ve své práci nabízím bezpečný a respektující prostor pro léčení zranění, která vznikla překročením vašich hranic – ať už šlo o násilí, manipulaci nebo jiné formy nátlaku. Společně můžeme vytvořit korektivní zkušenost – možnost projít si náročnou situaci, kterou si s sebou nesete, ale tentokrát jinak. Ve vašem tempu, s vědomím volby a bezpečí. Můžete se zachovat jinak, situace může dopadnout jinak – a právě to může být hluboce léčivé.</p>
-    <div class="gallery">
-      <img src="korekce.png" alt="Korektivní zkušenost">
-      <img src="korekce2.png" alt="Korektivní zkušenost 2">
-    </div>
-  </section>
+    <section class="section" id="terapeut">
+      <div class="container">
+        <div class="section-header">
+          <h2>Terapeutická práce</h2>
+        </div>
 
-  <section class="section" id="kontakt">
-    <h2>Kontakt</h2>
-    <p>Email: Bartik.ondra@seznam.cz<br>Telefon: +420 728 094 294</p>
-  </section>
+        <div class="panel therapy-panel">
+          <div class="therapy-layout">
+            <div class="therapy-copy">
+              <p>
+                Ve své práci vytvářím bezpečný a respektující prostor pro léčení zranění, která vznikla překročením vašich hranic – ať už šlo o násilí, manipulaci nebo jiné formy nátlaku.
+              </p>
+              <p>
+                Pracuji mimo jiné s přístupem <strong>E-motion</strong>, který umožňuje jít skrze tělo a prožitek – ne jen přes hlavu.
+              </p>
+              <p>
+                Společně můžeme vytvořit korektivní zkušenost – možnost projít si náročnou situaci, kterou si s sebou nesete, ale tentokrát jinak.
+              </p>
+              <p>
+                Ve vašem tempu, s vědomím volby a bezpečí. Můžete se zachovat jinak, situace může dopadnout jinak – a právě to může být hluboce léčivé.
+              </p>
+              <div class="course-actions">
+                <a class="card-button" href="#">Metoda E-motion</a>
+              </div>
+            </div>
+
+            <div class="therapy-gallery">
+              <img src="korekce3.png" alt="Korektivní zkušenost">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="kontakt">
+      <div class="container">
+        <div class="panel contact-panel">
+          <div class="contact-copy">
+            <h2>Kontakt</h2>
+            <p>
+              Ozvi se, pokud tě zajímá spolupráce, kurz nebo chceš zjistit, jestli ti tenhle přístup dává smysl.
+            </p>
+          </div>
+
+          <div class="contact-details">
+            <a href="mailto:Bartik.ondra@seznam.cz">Bartik.ondra@seznam.cz</a>
+            <a href="tel:+420728094294">+420 728 094 294</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <script>
-    // Simple JavaScript for smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
       });
     });
   </script>
