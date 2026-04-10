@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terapeutická práce | Ondřej Bártík</title>
+  <style>
+    :root {
+      --bg: #f6f7f4;
+      --surface: #ffffff;
+      --surface-soft: #eef2ec;
+      --surface-warm: #f8faf7;
+      --text: #17201b;
+      --text-soft: #49564e;
+      --accent: #2f6b57;
+      --accent-dark: #234f41;
+      --shadow-soft: 0 10px 30px rgba(23, 32, 27, 0.06);
+      --radius-lg: 28px;
+      --container: 1180px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(246,247,244,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #dbe2db;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 70px;
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-soft);
+    }
+
+    header {
+      padding: 60px 0 20px;
+    }
+
+    .page-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .page-lead {
+      color: var(--text-soft);
+      max-width: 700px;
+    }
+
+    .section {
+      padding: 40px 0 80px;
+    }
+
+    .panel {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 40px;
+    }
+
+    .therapy-layout {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .therapy-copy p {
+      margin-bottom: 16px;
+      color: var(--text-soft);
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .therapy-copy strong {
+      color: var(--text);
+    }
+
+    .card-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 18px;
+      background: var(--accent);
+      color: white;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .card-button:hover {
+      background: var(--accent-dark);
+    }
+
+    .therapy-gallery img {
+      width: 100%;
+      border-radius: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .therapy-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a class="nav-brand" href="index.html">Ondřej Bártík</a>
+    <ul>
+      <li><a href="index.html">Zpět</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header>
+  <div class="container">
+    <h1 class="page-title">Terapeutická práce</h1>
+    <p class="page-lead">Prostor pro práci do hloubky, kde se může něco skutečně změnit.</p>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="container">
+      <div class="panel">
+        <div class="therapy-layout">
+
+          <div class="therapy-copy">
+            <p>
+              Ve své práci vytvářím bezpečný a respektující prostor pro léčení zranění, která vznikla překročením vašich hranic – ať už šlo o násilí, manipulaci nebo jiné formy nátlaku.
+            </p>
+            <p>
+              Pracuji mimo jiné s přístupem <strong>E-motion</strong>, který umožňuje jít skrze tělo a prožitek – ne jen přes hlavu.
+            </p>
+            <p>
+              Společně můžeme vytvořit korektivní zkušenost – možnost projít si náročnou situaci, kterou si s sebou nesete, ale tentokrát jinak.
+            </p>
+            <p>
+              Ve vašem tempu, s vědomím volby a bezpečí. Můžete se zachovat jinak, situace může dopadnout jinak – a právě to může být hluboce léčivé.
+            </p>
+
+            <a class="card-button" href="#">Metoda E-motion</a>
+          </div>
+
+          <div class="therapy-gallery">
+            <img src="korekce3.jpg" alt="Korektivní zkušenost">
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>
